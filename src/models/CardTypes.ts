@@ -2,6 +2,7 @@ export interface CardData {
   cardTitle?: string;
   cardDescription?: string;
   cardImageSrc?: string;
+  cardWeight?: string;
   title?: string;
   description?: string;
   imageSrc?: string;

@@ -2,12 +2,13 @@ import { Box } from "@mui/system";
 import Header from "../components/Header";
 import "../App.css";
 import backgroundBlurred from "../assets/images/backgroundBlurred.png";
-import AnimatedPage from "../animation/AnimatedPage";
+import AnimatedPage, { fadeIn } from "../animation/AnimatedPage";
 import Footer from "../components/Footer";
 import SixthMiddleText from "../components/SixthMiddleText";
 import Form from "../components/Form";
 import { useTheme } from "@mui/material/styles";
 import { useMediaQuery } from "@mui/material";
+import { motion } from "framer-motion";
 
 function ContactPage() {
   const footerBackgroundColor = "#F8F8F7";
@@ -43,12 +44,26 @@ function ContactPage() {
         <Header />
         <SixthMiddleText />
       </Box>
-      <Form textColor="#AEAEAE" backgroundColor="#FFFFFF" />
-      <Footer
-        backgroundColor={footerBackgroundColor}
-        footerText={footerText}
-        svgColor={svgColor}
-      />
+      <motion.div
+        variants={fadeIn}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <Form textColor="#AEAEAE" backgroundColor="#FFFFFF" />
+      </motion.div>
+      <motion.div
+        variants={fadeIn}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <Footer
+          backgroundColor={footerBackgroundColor}
+          footerText={footerText}
+          svgColor={svgColor}
+        />
+      </motion.div>
     </AnimatedPage>
   );
 }

@@ -4,11 +4,14 @@ import pointer from "../assets/icons/pointer.svg";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "@mui/material/styles";
 import { useMediaQuery } from "@mui/material";
+import { motion } from "framer-motion";
+import { fadeIn } from "../animation/AnimatedPage";
 
 function ThirdPageMiddleText() {
   const { t } = useTranslation("");
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
   const styles: any = {
     mainContainer: {
       padding: isMobile ? "0%" : "12%",
@@ -44,14 +47,20 @@ function ThirdPageMiddleText() {
   };
 
   return (
-    <Box style={styles.mainContainer}>
+    <motion.div
+      variants={fadeIn}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      style={styles.mainContainer}
+    >
       <Typography style={styles.firstWord}>{t("products")}</Typography>
       <Box style={styles.secondaryContainer}>
         <span style={styles.spanWordFirst}>{t("home")}</span>
         <img src={pointer} alt="pointer" />
         <span style={styles.spanWord}>{t("products")}</span>
       </Box>
-    </Box>
+    </motion.div>
   );
 }
 

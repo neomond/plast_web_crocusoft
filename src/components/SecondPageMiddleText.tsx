@@ -4,6 +4,8 @@ import pointer from "../assets/icons/pointer.svg";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "@mui/material/styles";
 import { useMediaQuery } from "@mui/material";
+import { fadeIn } from "../animation/AnimatedPage";
+import { motion } from "framer-motion";
 
 function SecondPageMiddleText() {
   const { t } = useTranslation("");
@@ -42,14 +44,20 @@ function SecondPageMiddleText() {
     },
   };
   return (
-    <Box style={styles.mainContainer}>
+    <motion.div
+      variants={fadeIn}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      style={styles.mainContainer}
+    >
       <Typography style={styles.firstWord}>{t("we_buy")}</Typography>
       <Box style={styles.secondaryContainer}>
         <span style={styles.spanWordFirst}>{t("home")}</span>
         <img src={pointer} alt="pointer" />
         <span style={styles.spanWord}>{t("we_buy")}</span>
       </Box>
-    </Box>
+    </motion.div>
   );
 }
 

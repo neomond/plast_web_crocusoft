@@ -1,9 +1,9 @@
 import { Box } from "@mui/system";
 import Header from "../components/Header";
-
+import { motion } from "framer-motion";
 import "../App.css";
 import backgroundBlurred from "../assets/images/backgroundBlurred.png";
-import AnimatedPage from "../animation/AnimatedPage";
+import AnimatedPage, { fadeIn } from "../animation/AnimatedPage";
 import Footer from "../components/Footer";
 import ThirdPageMiddleText from "../components/ThirdPageMiddleText";
 import OurProductsItems from "../components/OurProductsItems";
@@ -46,12 +46,26 @@ function OurProductsPage() {
         <Header />
         <ThirdPageMiddleText />
       </Box>
-      <OurProductsItems query={query} />
-      <Footer
-        backgroundColor={footerBackgroundColor}
-        footerText={footerText}
-        svgColor={svgColor}
-      />
+      <motion.div
+        variants={fadeIn}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <OurProductsItems query={query} />
+      </motion.div>
+      <motion.div
+        variants={fadeIn}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <Footer
+          backgroundColor={footerBackgroundColor}
+          footerText={footerText}
+          svgColor={svgColor}
+        />
+      </motion.div>
     </AnimatedPage>
   );
 }

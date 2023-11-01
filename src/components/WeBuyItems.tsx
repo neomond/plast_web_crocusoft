@@ -115,7 +115,7 @@ const WeBuyItems: React.FC<CardProps> = ({ card }) => {
         <Card style={styles.card}>
           <Box style={styles.span}>
             <Typography style={styles.spanText}>5 azn / </Typography>
-            <Typography style={styles.spanText}> 1 kg</Typography>
+            <Typography style={styles.spanText}>{card.cardWeight}kg</Typography>
           </Box>
           <img src={card.cardImageSrc} style={styles.img} alt="Search" />
           <CardContent>
@@ -155,7 +155,12 @@ const WeBuyItems: React.FC<CardProps> = ({ card }) => {
           </CardContent>
         </Card>
       </Box>
-      <ModalComponent isOpen={isModalOpen} onClose={handleCloseModal} />
+      <ModalComponent
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        initialDropdownValue={card.cardTitle}
+        initialWeight={card.cardWeight}
+      />
     </Box>
   );
 };

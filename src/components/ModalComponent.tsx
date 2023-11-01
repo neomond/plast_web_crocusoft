@@ -59,9 +59,11 @@ const CustomTextField = styled(TextField)({
   },
 });
 
-const ModalComponent: FC<ModalProps> = ({ isOpen, onClose }) => {
-  const [dropdownValue, setDropdownValue] = useState("");
-  const [weight, setWeight] = useState("");
+const ModalComponent: FC<
+  ModalProps & { initialDropdownValue?: string; initialWeight?: string }
+> = ({ isOpen, onClose, initialDropdownValue = "", initialWeight = "" }) => {
+  const [dropdownValue, setDropdownValue] = useState(initialDropdownValue);
+  const [weight, setWeight] = useState(initialWeight);
   const [fullName, setFullName] = useState("");
   const [contactNumber, setContactNumber] = useState("");
 
@@ -175,6 +177,11 @@ const ModalComponent: FC<ModalProps> = ({ isOpen, onClose }) => {
               <MenuItem value={"Karton kağızlar"}>Karton kağızlar</MenuItem>
               <MenuItem value={"Arxiv"}>Arxiv</MenuItem>
               <MenuItem value={"Qarışıq"}>Qarışıq</MenuItem>
+              <MenuItem value={"Statik 24"}>Statik 24</MenuItem>
+              <MenuItem value={"Statik 30A"}>Statik 30A</MenuItem>
+              <MenuItem value={"Statico ST-40 üfüqi"}>
+                Statico ST-40 üfüqi
+              </MenuItem>
             </Select>
           </CustomFormControl>
           <CustomTextField

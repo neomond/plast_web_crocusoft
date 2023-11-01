@@ -5,6 +5,8 @@ import ModalComponent from "./ModalComponent";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "@mui/material/styles";
 import { useMediaQuery } from "@mui/material";
+import { fadeIn } from "../animation/AnimatedPage";
+import { motion } from "framer-motion";
 
 const MiddleTextWrapper = () => {
   const { t } = useTranslation();
@@ -54,7 +56,13 @@ const MiddleTextWrapper = () => {
   };
 
   return (
-    <Box style={styles.middleTextWrapper}>
+    <motion.div
+      variants={fadeIn}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      style={styles.middleTextWrapper}
+    >
       <Typography style={styles.toplabel}>{t("future_label")}</Typography>
       <Typography variant="h1" style={styles.middleText}>
         {t("nature_text")}
@@ -69,7 +77,7 @@ const MiddleTextWrapper = () => {
         <img src={pointer} alt="pointer" />
       </Button>
       <ModalComponent isOpen={isModalOpen} onClose={handleCloseModal} />
-    </Box>
+    </motion.div>
   );
 };
 

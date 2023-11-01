@@ -1,4 +1,4 @@
-import AnimatedPage from "../animation/AnimatedPage";
+import AnimatedPage, { fadeIn } from "../animation/AnimatedPage";
 import { Box } from "@mui/system";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -6,6 +6,7 @@ import backgroundBlurred from "../assets/images/backgroundBlurred.png";
 import Search from "../components/Search";
 import { useTheme } from "@mui/material/styles";
 import { useMediaQuery } from "@mui/material";
+import { motion } from "framer-motion";
 
 function SearchPage() {
   const footerBackgroundColor = "#F8F8F7";
@@ -45,11 +46,18 @@ function SearchPage() {
         <Header />
         <Search />
       </Box>
-      <Footer
-        backgroundColor={footerBackgroundColor}
-        footerText={footerText}
-        svgColor={svgColor}
-      />
+      <motion.div
+        variants={fadeIn}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <Footer
+          backgroundColor={footerBackgroundColor}
+          footerText={footerText}
+          svgColor={svgColor}
+        />
+      </motion.div>
     </AnimatedPage>
   );
 }

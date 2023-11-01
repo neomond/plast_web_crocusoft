@@ -3,11 +3,11 @@ import Header from "../components/Header";
 
 import "../App.css";
 import backgroundBlurred from "../assets/images/backgroundBlurred.png";
-import AnimatedPage from "../animation/AnimatedPage";
+import AnimatedPage, { fadeIn } from "../animation/AnimatedPage";
 import Footer from "../components/Footer";
 
 import FourthPageMiddleText from "../components/FourthMiddleText";
-
+import { motion } from "framer-motion";
 import InstrumentsItems from "../components/InstrumentsItems";
 import { productsData } from "../data/productsData";
 import { useTheme } from "@mui/material/styles";
@@ -35,8 +35,8 @@ function InstrumentsPage() {
       flexWrap: "wrap",
       display: "grid",
       gridTemplateColumns: "repeat(auto-fill, minmax(360px, 1fr))",
-      gap: 32,
-      padding: "100px",
+      gap: isMobile ? 8 : 32,
+      padding: isMobile ? "20px" : "100px",
       justifyContent: "center",
     },
   };
@@ -49,14 +49,28 @@ function InstrumentsPage() {
 
       <Box style={styles.cards}>
         {productsData.map((card, index) => (
-          <InstrumentsItems key={index} card={card} />
+          <motion.div
+            variants={fadeIn}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <InstrumentsItems key={index} card={card} />
+          </motion.div>
         ))}
       </Box>
-      <Footer
-        backgroundColor={footerBackgroundColor}
-        footerText={footerText}
-        svgColor={svgColor}
-      />
+      <motion.div
+        variants={fadeIn}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <Footer
+          backgroundColor={footerBackgroundColor}
+          footerText={footerText}
+          svgColor={svgColor}
+        />
+      </motion.div>
     </AnimatedPage>
   );
 }

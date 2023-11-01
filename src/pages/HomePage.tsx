@@ -2,6 +2,7 @@ import { Box } from "@mui/system";
 import Header from "../components/Header";
 import MiddleTextWrapper from "../components/MiddleTextWrapper";
 import WeBuy from "../components/WeBuy";
+import { motion } from "framer-motion";
 
 import WeBuyItems from "../components/WeBuyItems";
 import Swiper from "../components/Swiper";
@@ -10,7 +11,7 @@ import ContactUs from "../components/ContactUs";
 import Footer from "../components/Footer";
 import "../App.css";
 import backgroundMain from "../assets/images/backgroundMain.png";
-import AnimatedPage from "../animation/AnimatedPage";
+import AnimatedPage, { fadeIn } from "../animation/AnimatedPage";
 import OurProducts from "../components/OurProducts";
 import { productsData } from "../data/productsData";
 import { useTheme } from "@mui/material/styles";
@@ -52,14 +53,61 @@ function HomePage() {
       <WeBuy />
       <Box style={styles.cards}>
         {productsData.map((card, index) => (
-          <WeBuyItems key={index} card={card} />
+          <motion.div
+            key={index}
+            variants={fadeIn}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.8 }}
+          >
+            <WeBuyItems key={index} card={card} />
+          </motion.div>
         ))}
       </Box>
-      <OurProducts />
-      <Swiper />
-      <AboutUsData />
-      <ContactUs />
-      <Footer />
+      <motion.div
+        variants={fadeIn}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <OurProducts />
+      </motion.div>
+
+      <motion.div
+        variants={fadeIn}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <Swiper />
+      </motion.div>
+
+      <motion.div
+        variants={fadeIn}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <AboutUsData />
+      </motion.div>
+
+      <motion.div
+        variants={fadeIn}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <ContactUs />
+      </motion.div>
+
+      <motion.div
+        variants={fadeIn}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <Footer />
+      </motion.div>
     </AnimatedPage>
   );
 }

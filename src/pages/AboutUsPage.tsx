@@ -1,9 +1,9 @@
 import { Box } from "@mui/system";
 import Header from "../components/Header";
-
+import { motion } from "framer-motion";
 import "../App.css";
 import backgroundBlurred from "../assets/images/backgroundBlurred.png";
-import AnimatedPage from "../animation/AnimatedPage";
+import AnimatedPage, { fadeIn } from "../animation/AnimatedPage";
 import Footer from "../components/Footer";
 import FifthPageMiddleText from "../components/FifthMiddleText";
 import AboutUsData from "../components/AboutUsData";
@@ -46,13 +46,34 @@ function AboutUsPage() {
         <Header />
         <FifthPageMiddleText />
       </Box>
-      <AboutUsData />
-      <WhatWeDo />
-      <Footer
-        backgroundColor={footerBackgroundColor}
-        footerText={footerText}
-        svgColor={svgColor}
-      />
+      <motion.div
+        variants={fadeIn}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <AboutUsData />
+      </motion.div>
+      <motion.div
+        variants={fadeIn}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <WhatWeDo />
+      </motion.div>
+      <motion.div
+        variants={fadeIn}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <Footer
+          backgroundColor={footerBackgroundColor}
+          footerText={footerText}
+          svgColor={svgColor}
+        />
+      </motion.div>
     </AnimatedPage>
   );
 }

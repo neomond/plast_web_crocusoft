@@ -1,6 +1,7 @@
 export const productsData = [
   {
-    cardTitle: "Ağ vərəqlər (A4)",
+    cardTitle: "Ağ vərəqlər",
+    cardWeight: "1",
     cardDescription:
       "Interdum at a, vestibulum porta tristique penatibus feugiat tristique nulla. Ipsum vel ullamcorper pulvinar vulputate non non nisi a.",
     cardImageSrc: require("../assets/images/cardItem1.png"),
@@ -15,6 +16,7 @@ export const productsData = [
   },
   {
     cardTitle: "Qəzetlər",
+    cardWeight: "1",
     cardDescription:
       "Interdum at a, vestibulum porta tristique penatibus feugiat tristique nulla. Ipsum vel ullamcorper pulvinar vulputate non non nisi a.",
     cardImageSrc: require("../assets/images/cardItem2.png"),
@@ -29,6 +31,7 @@ export const productsData = [
   },
   {
     cardTitle: "Karton kağızlar",
+    cardWeight: "1",
     cardDescription:
       "Interdum at a, vestibulum porta tristique penatibus feugiat tristique nulla. Ipsum vel ullamcorper pulvinar vulputate non non nisi a.",
     cardImageSrc: require("../assets/images/cardItem3.png"),
@@ -43,6 +46,7 @@ export const productsData = [
   },
   {
     cardTitle: "Arxiv",
+    cardWeight: "1",
     cardDescription:
       "Interdum at a, vestibulum porta tristique penatibus feugiat tristique nulla. Ipsum vel ullamcorper pulvinar vulputate non non nisi a.",
     cardImageSrc: require("../assets/images/cardItem4.png"),
@@ -57,6 +61,7 @@ export const productsData = [
   },
   {
     cardTitle: "Qarışıq",
+    cardWeight: "1",
     cardDescription:
       "Interdum at a, vestibulum porta tristique penatibus feugiat tristique nulla. Ipsum vel ullamcorper pulvinar vulputate non non nisi a.",
     cardImageSrc: require("../assets/images/cardItem5.png"),
@@ -71,6 +76,7 @@ export const productsData = [
   },
   {
     title: "Qarışıq",
+    cardWeight: "1",
     description:
       "Interdum at a, vestibulum porta tristique penatibus feugiat tristique.",
     imageSrc: require("../assets/images/ourProductsImg1.png"),
@@ -81,24 +87,28 @@ export const productsData = [
   },
   {
     title: "Kağız salfetlər",
+    cardWeight: "1",
     description:
       "Interdum at a, vestibulum porta tristique penatibus feugiat tristique.",
     imageSrc: require("../assets/images/ourProductsImg2.png"),
   },
   {
     title: "Kağız salfetlər",
+    cardWeight: "1",
     description:
       "Interdum at a, vestibulum porta tristique penatibus feugiat tristique.",
     imageSrc: require("../assets/images/ourProductsImg3.png"),
   },
   {
     title: "Kağız salfetlər",
+    cardWeight: "1",
     description:
       "Interdum at a, vestibulum porta tristique penatibus feugiat tristique.",
     imageSrc: require("../assets/images/ourProductsImg4.png"),
   },
   {
     title: "Kağız salfetlər",
+    cardWeight: "1",
     description:
       "Interdum at a, vestibulum porta tristique penatibus feugiat tristique.",
     imageSrc: require("../assets/images/ourProductsImg5.png"),

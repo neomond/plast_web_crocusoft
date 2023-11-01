@@ -5,12 +5,14 @@ import {
   CardContent,
   Typography,
   Grid,
+  useMediaQuery,
 } from "@mui/material";
 import { Box } from "@mui/system";
 import "../App.css";
 import { productsData } from "../data/productsData";
 import { useState } from "react";
 import ModalComponent from "./ModalComponent";
+import { useTheme } from "@mui/material/styles";
 
 interface OurProductsItemsProps {
   query: string;
@@ -18,6 +20,8 @@ interface OurProductsItemsProps {
 
 function OurProductsItems({ query }: OurProductsItemsProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   const handleOpenModal = () => {
     setIsModalOpen(true);
@@ -31,10 +35,72 @@ function OurProductsItems({ query }: OurProductsItemsProps) {
     product.title.toLowerCase().includes(query.toLowerCase())
   );
 
+  const styles: any = {
+    wrapper: {
+      padding: isMobile ? "24px 20px" : "64px 100px",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+    },
+    cardWrapper: {
+      display: "flex",
+      flexWrap: "wrap",
+      gap: "45px",
+      padding: 0,
+    },
+    card: {
+      border: "none",
+      borderRadius: "10px",
+      boxShadow: "none",
+      display: "flex",
+      flexDirection: "column",
+      width: "250px",
+      padding: 0,
+    },
+    rightBtn: {
+      backgroundColor: "#00AD33",
+      color: "#FFFFFF",
+      fontWeight: "700",
+      width: 120,
+      padding: "8px 12px",
+      borderRadius: 8,
+      fontSize: 11,
+    },
+    btnGroup: {
+      columnGap: 16,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      marginTop: "16px",
+    },
+    img: {
+      width: "78px",
+      maxWidth: "100%",
+      marginTop: "16px",
+    },
+    span: {
+      width: 110,
+      height: 37,
+      borderRadius: 8,
+      fontWeight: "700",
+      display: "flex",
+      flexDirection: "row",
+      alignItems: "center",
+      textAlign: "center",
+      justifyContent: "center",
+      marginRight: 20,
+    },
+    spanText: {
+      color: "#090C06",
+      fontSize: 14,
+    },
+    noItems: { padding: 15, textAlign: "center", width: "100vw" },
+  };
+
   if (filteredProducts.length === 0) {
     return (
       <Box style={styles.noItems}>
-        <Typography variant="h6" sx={{ pb: 6 }}>
+        <Typography variant={"h6"} sx={{ pb: 6 }}>
           No items found
         </Typography>
       </Box>
@@ -79,7 +145,10 @@ function OurProductsItems({ query }: OurProductsItemsProps) {
                   </Button>
                   <Box style={styles.span}>
                     <Typography style={styles.spanText}>5 azn / </Typography>
-                    <Typography style={styles.spanText}> 1 kg</Typography>
+                    <Typography style={styles.spanText}>
+                      {" "}
+                      {product.cardWeight} kg
+                    </Typography>
                   </Box>
                 </ButtonGroup>
               </CardContent>
@@ -93,65 +162,3 @@ function OurProductsItems({ query }: OurProductsItemsProps) {
 }
 
 export default OurProductsItems;
-
-const styles: any = {
-  wrapper: {
-    padding: "64px 100px",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  cardWrapper: {
-    display: "flex",
-    flexWrap: "wrap",
-    gap: "45px",
-    padding: 0,
-  },
-  card: {
-    border: "none",
-    borderRadius: "10px",
-    boxShadow: "none",
-    display: "flex",
-    flexDirection: "column",
-    width: "250px",
-    padding: 0,
-  },
-  rightBtn: {
-    backgroundColor: "#00AD33",
-    color: "#FFFFFF",
-    fontWeight: "700",
-    width: 120,
-    padding: "8px 12px",
-    borderRadius: 8,
-    fontSize: 11,
-  },
-  btnGroup: {
-    columnGap: 16,
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    marginTop: "16px",
-  },
-  img: {
-    width: "78px",
-    maxWidth: "100%",
-    marginTop: "16px",
-  },
-  span: {
-    width: 110,
-    height: 37,
-    borderRadius: 8,
-    fontWeight: "700",
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
-    textAlign: "center",
-    justifyContent: "center",
-    marginRight: 20,
-  },
-  spanText: {
-    color: "#090C06",
-    fontSize: 14,
-  },
-  noItems: { padding: 15, textAlign: "center", width: "100vw" },
-};

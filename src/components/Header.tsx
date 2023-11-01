@@ -98,7 +98,7 @@ const Header: React.FC = () => {
             { label: "instruments", path: "/instruments" },
             { label: "about", path: "/aboutus" },
             { label: "contact", path: "/contact" },
-          ].map((item) => (
+          ].map((item, index, array) => (
             <Box sx={styles.inlineSpanStyle} key={item.label}>
               <Link to={item.path}>
                 <Typography
@@ -108,7 +108,9 @@ const Header: React.FC = () => {
                   {t(item.label)}
                 </Typography>
               </Link>
-              <span style={styles.spandots}></span>
+              {index !== array.length - 1 && (
+                <span style={styles.spandots}></span>
+              )}
             </Box>
           ))}
         </Box>

@@ -3,12 +3,13 @@ import Header from "../components/Header";
 import WeBuyItems from "../components/WeBuyItems";
 import "../App.css";
 import backgroundBlurred from "../assets/images/backgroundBlurred.png";
-import AnimatedPage from "../animation/AnimatedPage";
+import AnimatedPage, { fadeIn } from "../animation/AnimatedPage";
 import SecondPageMiddleText from "../components/SecondPageMiddleText";
 import Footer from "../components/Footer";
 import { productsData } from "../data/productsData";
 import { useTheme } from "@mui/material/styles";
 import { useMediaQuery } from "@mui/material";
+import { motion } from "framer-motion";
 
 function WeBuyPage() {
   const footerBackgroundColor = "#F8F8F7";
@@ -48,14 +49,28 @@ function WeBuyPage() {
       </Box>
       <Box style={styles.cards}>
         {productsData.map((card, index) => (
-          <WeBuyItems key={index} card={card} />
+          <motion.div
+            variants={fadeIn}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <WeBuyItems key={index} card={card} />
+          </motion.div>
         ))}
       </Box>
-      <Footer
-        backgroundColor={footerBackgroundColor}
-        footerText={footerText}
-        svgColor={svgColor}
-      />
+      <motion.div
+        variants={fadeIn}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <Footer
+          backgroundColor={footerBackgroundColor}
+          footerText={footerText}
+          svgColor={svgColor}
+        />
+      </motion.div>
     </AnimatedPage>
   );
 }

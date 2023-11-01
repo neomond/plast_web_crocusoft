@@ -117,7 +117,10 @@ const InstrumentsItems: React.FC<CardProps> = ({ card }) => {
         <Card style={styles.card}>
           <Box style={styles.span}>
             <Typography style={styles.spanText}>5 azn / </Typography>
-            <Typography style={styles.spanText}> 1 kg</Typography>
+            <Typography style={styles.spanText}>
+              {" "}
+              {card.cardWeight} kg
+            </Typography>
           </Box>
           <img src={card?.imageSrcInstrument} style={styles.img} alt="Search" />
           <CardContent>
@@ -157,7 +160,12 @@ const InstrumentsItems: React.FC<CardProps> = ({ card }) => {
           </CardContent>
         </Card>
       </Box>
-      <ModalComponent isOpen={isModalOpen} onClose={handleCloseModal} />
+      <ModalComponent
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        initialDropdownValue={card.titleInstrument}
+        initialWeight={card.cardWeight}
+      />
     </Box>
   );
 };

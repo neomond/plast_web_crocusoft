@@ -2,6 +2,7 @@ import { Box } from "@mui/system";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "@mui/material/styles";
 import { useMediaQuery } from "@mui/material";
+import { motion } from "framer-motion";
 
 export default function AboutUs() {
   const themeMain = useTheme();

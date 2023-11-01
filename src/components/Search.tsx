@@ -4,11 +4,13 @@ import { memo, useCallback, useState } from "react";
 import OurProductsItems from "./OurProductsItems";
 import { useTheme } from "@mui/material/styles";
 import { useMediaQuery } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 const Search = memo(function Search() {
   const [query, setQuery] = useState("");
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const { t, i18n } = useTranslation();
 
   const handleChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -16,6 +18,7 @@ const Search = memo(function Search() {
     },
     []
   );
+
   const styles: any = {
     wrapper: {
       pt: isMobile ? "70%" : "12%",
@@ -38,7 +41,7 @@ const Search = memo(function Search() {
     searchContainer: {
       display: "flex",
       alignItems: "center",
-      width: isMobile ? "90%" : 550,
+      width: isMobile ? "95%" : 550,
       backgroundColor: "#fff",
       borderRadius: "16px",
       mb: 8,
@@ -63,17 +66,17 @@ const Search = memo(function Search() {
     },
     searchResultsText: {
       pt: 6,
-      pl: 15,
+      pl: isMobile ? 5 : 15,
       color: "#090C06",
       fontStyle: "italic",
       opacity: 0.4,
-      fontSize: 18,
+      fontSize: isMobile ? "95%" : 18,
     },
   };
   return (
     <Box sx={styles.wrapper}>
       <Box sx={styles.mainContainer}>
-        <Typography sx={styles.firstWord}>Axtar</Typography>
+        <Typography sx={styles.firstWord}>{t("search")}</Typography>
         <Box sx={styles.searchContainer}>
           <InputBase
             sx={styles.input}

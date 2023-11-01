@@ -2,6 +2,8 @@ import { Box } from "@mui/system";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "@mui/material/styles";
 import { useMediaQuery } from "@mui/material";
+import { fadeIn } from "../animation/AnimatedPage";
+import { motion } from "framer-motion";
 
 export default function WeBuy() {
   const { t } = useTranslation();
@@ -42,11 +44,17 @@ export default function WeBuy() {
   };
 
   return (
-    <Box style={styles.mainContainer}>
+    <motion.div
+      variants={fadeIn}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      style={styles.mainContainer}
+    >
       <span style={styles.firstWord}>{t("webuy_label_1")}</span>
       <span style={styles.secondWord}>{t("webuy_label_2")}</span>
       <span style={styles.thirdWord}>!</span>
       <span style={styles.triangle}></span>
-    </Box>
+    </motion.div>
   );
 }

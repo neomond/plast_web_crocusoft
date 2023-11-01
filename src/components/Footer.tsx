@@ -104,8 +104,7 @@ function Footer({ backgroundColor, footerText, svgColor }: any) {
               </Typography>
               <Box sx={{ flexDirection: "column" }}>
                 <Link
-                  href="/"
-                  target="_blank"
+                  href="/ourproducts"
                   rel="noopener noreferrer"
                   style={styles.linkStyle}
                   onMouseEnter={(e) =>
@@ -120,8 +119,7 @@ function Footer({ backgroundColor, footerText, svgColor }: any) {
                   </Typography>
                 </Link>
                 <Link
-                  href="/"
-                  target="_blank"
+                  href="/webuy"
                   rel="noopener noreferrer"
                   style={styles.linkStyle}
                   onMouseEnter={(e) =>
@@ -136,8 +134,7 @@ function Footer({ backgroundColor, footerText, svgColor }: any) {
                   </Typography>
                 </Link>
                 <Link
-                  href="/"
-                  target="_blank"
+                  href="/instruments"
                   rel="noopener noreferrer"
                   style={styles.linkStyle}
                   onMouseEnter={(e) =>
