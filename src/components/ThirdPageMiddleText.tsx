@@ -20,7 +20,7 @@ function ThirdPageMiddleText() {
       alignItems: "center",
       justifyContent: "center",
       position: "relative",
-      marginTop: isMobile ? "70%" : "0%",
+      marginTop: isMobile ? "85%" : "0%",
       textAlign: "center",
     },
     firstWord: {

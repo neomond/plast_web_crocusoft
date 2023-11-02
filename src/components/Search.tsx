@@ -93,7 +93,7 @@ const Search = memo(function Search() {
       {query && (
         <Box style={styles.resultContainer}>
           <Typography variant="h6" sx={styles.searchResultsText}>
-            “{query}” açar sözü üzrə axtarış nəticələri:
+            “{query}” açar sözü üzrə axtarış nəticələri...
           </Typography>
           <OurProductsItems query={query} />
         </Box>

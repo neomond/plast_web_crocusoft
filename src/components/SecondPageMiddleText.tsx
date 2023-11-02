@@ -19,7 +19,7 @@ function SecondPageMiddleText() {
       alignItems: "center",
       justifyContent: "center",
       position: "relative",
-      marginTop: isMobile ? "70%" : "0%",
+      marginTop: isMobile ? "85%" : "0%",
     },
     firstWord: {
       color: "#fff",
@@ -43,6 +43,7 @@ function SecondPageMiddleText() {
       columnGap: 8,
     },
   };
+
   return (
     <motion.div
       variants={fadeIn}

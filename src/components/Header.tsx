@@ -16,7 +16,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import search from "../assets/icons/search.svg";
 import logo from "../assets/icons/logo.svg";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "../App.css";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "@mui/material/styles";
@@ -100,14 +100,19 @@ const Header: React.FC = () => {
             { label: "contact", path: "/contact" },
           ].map((item, index, array) => (
             <Box sx={styles.inlineSpanStyle} key={item.label}>
-              <Link to={item.path}>
+              <NavLink
+                to={item.path}
+                style={({ isActive }) => ({
+                  fontWeight: isActive ? "bold" : "normal",
+                })}
+              >
                 <Typography
                   variant="h6"
                   sx={{ fontSize: 14, textTransform: "uppercase" }}
                 >
                   {t(item.label)}
                 </Typography>
-              </Link>
+              </NavLink>
               {index !== array.length - 1 && (
                 <span style={styles.spandots}></span>
               )}
